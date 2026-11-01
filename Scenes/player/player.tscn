@@ -7,13 +7,13 @@ size = Vector2(20, 40)
 
 [sub_resource type="Gradient" id="Gradient_f60y1"]
 offsets = PackedFloat32Array(0.16532259)
-colors = PackedColorArray(0.37463456, 0.30126742, 0.90296704, 1)
+colors = PackedColorArray(0, 1, 0.38431373, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_no71r"]
 gradient = SubResource("Gradient_f60y1")
 fill_from = Vector2(1, 1)
 
-[node name="Player" type="CharacterBody2D" unique_id=1209957444]
+[node name="Player" type="CharacterBody2D" unique_id=1209957444 groups=["player"]]
 script = ExtResource("1_8p05u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602125154]

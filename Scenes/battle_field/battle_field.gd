@@ -4,7 +4,9 @@ extends Node2D
 var enemy : PackedScene = preload("res://Scenes/Enemy/enemy.tscn")
 
 func _ready() -> void:
-	for i in range(5):
+	for i in range(10):
 		var node = enemy.instantiate()
-		node.player = player
 		add_child(node)
+
+func _process(delta: float) -> void:
+	RunState.tick(delta)
