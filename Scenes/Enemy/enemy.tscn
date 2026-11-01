@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bkj1ps0mju0qc" path="res://Scenes/Enemy/enemy.gd" id="1_mw074"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6le5l"]
-size = Vector2(32, 64)
+size = Vector2(12, 14)
 
 [sub_resource type="Gradient" id="Gradient_ntch3"]
 offsets = PackedFloat32Array(0.35080644)
@@ -20,5 +20,5 @@ script = ExtResource("1_mw074")
 shape = SubResource("RectangleShape2D_6le5l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1242877475]
-scale = Vector2(0.5, 1)
+scale = Vector2(0.1875, 0.21875)
 texture = SubResource("GradientTexture2D_6le5l")
