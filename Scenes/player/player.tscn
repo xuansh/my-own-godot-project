@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://by7pdbt1cwtu"]
 
-[ext_resource type="Script" uid="uid://dy4bbqs0h37fa" path="res://Scenes/Player/player.gd" id="1_8p05u"]
+[ext_resource type="Script" uid="uid://dy4bbqs0h37fa" path="res://Scenes/player/player.gd" id="1_8p05u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6le5l"]
 size = Vector2(20, 40)
@@ -22,3 +22,6 @@ shape = SubResource("RectangleShape2D_6le5l")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1206638493]
 scale = Vector2(0.3125, 0.625)
 texture = SubResource("GradientTexture2D_no71r")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=88643603]
+autostart = true
