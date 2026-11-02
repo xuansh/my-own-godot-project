@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bmpmsx1ow1pq7"]
+
+[ext_resource type="Script" uid="uid://bral0mrogcv80" path="res://Scenes/BattleField/battle_field.gd" id="1_8r4ul"]
+[ext_resource type="PackedScene" uid="uid://by7pdbt1cwtu" path="res://Scenes/Player/player.tscn" id="2_y1e7y"]
+
+[node name="BattleField" type="Node2D" unique_id=434400165]
+script = ExtResource("1_8r4ul")
+
+[node name="Player" parent="." unique_id=1209957444 instance=ExtResource("2_y1e7y")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1068462332]

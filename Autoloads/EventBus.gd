@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 @warning_ignore_start("unused_signal")
 
 class EnemyDiedPayload:

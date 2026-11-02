@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://by7pdbt1cwtu"]
+
+[ext_resource type="Script" uid="uid://dy4bbqs0h37fa" path="res://Scenes/Player/player.gd" id="1_8p05u"]
+[ext_resource type="Script" uid="uid://86g2m4qi45jq" path="res://Scenes/Player/Components/input_component.gd" id="2_a3d8c"]
+[ext_resource type="Script" uid="uid://d0c6v6o5h7rch" path="res://Scenes/Common/Components/movement_component.gd" id="3_xpcdj"]
+[ext_resource type="Script" uid="uid://8e6jybvcktcr" path="res://Scenes/Player/Components/weapon_component.gd" id="4_htcer"]
+[ext_resource type="Resource" uid="uid://cq336u315yrvo" path="res://Resources/WeaponDefinitions/basic_weapon.tres" id="5_dd0ac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6le5l"]
+size = Vector2(20, 40)
+
+[sub_resource type="Gradient" id="Gradient_f60y1"]
+offsets = PackedFloat32Array(0.16532259)
+colors = PackedColorArray(0, 1, 0.38431373, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_no71r"]
+gradient = SubResource("Gradient_f60y1")
+fill_from = Vector2(1, 1)
+
+[node name="Player" type="CharacterBody2D" unique_id=1209957444 groups=["player"]]
+script = ExtResource("1_8p05u")
+weapon_definition = ExtResource("5_dd0ac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602125154]
+shape = SubResource("RectangleShape2D_6le5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1206638493]
+scale = Vector2(0.3125, 0.625)
+texture = SubResource("GradientTexture2D_no71r")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=88643603]
+
+[node name="InputComponent" type="Node" parent="." unique_id=1680392336]
+unique_name_in_owner = true
+script = ExtResource("2_a3d8c")
+metadata/_custom_type_script = "uid://86g2m4qi45jq"
+
+[node name="MovementComponent" type="Node" parent="." unique_id=2140841324]
+unique_name_in_owner = true
+script = ExtResource("3_xpcdj")
+max_speed = 150.0
+metadata/_custom_type_script = "uid://d0c6v6o5h7rch"
+
+[node name="WeaponComponent" type="Node" parent="." unique_id=497130471]
+unique_name_in_owner = true
+script = ExtResource("4_htcer")
+metadata/_custom_type_script = "uid://8e6jybvcktcr"

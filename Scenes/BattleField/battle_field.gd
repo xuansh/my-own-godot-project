@@ -1,6 +1,15 @@
 extends Node2D
-
+#  InputComponent
+# → MovementComponent
+# → TargetingComponent
+  #→ WeaponComponent
+  #→ DamageData
+  #→ HealthComponent
+  #→ Hurtbox
+  #→ 死亡信号
+  #→ EncounterController 生成经验宝石
 @onready var player: CharacterBody2D = $Player
+
 var enemy : PackedScene = preload("res://Scenes/Enemy/enemy.tscn")
 var xp_gem : PackedScene = preload("res://Scenes/XpGem/xp_gem.tscn")
 

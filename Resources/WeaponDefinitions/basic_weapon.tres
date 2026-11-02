@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://cq336u315yrvo"]
+
+[ext_resource type="Script" uid="uid://nqjbw21dch4k" path="res://Datas/weapon_definition.gd" id="1_ilclt"]
+
+[resource]
+script = ExtResource("1_ilclt")
+cool_time = 0.1
+damage = 50.0
+metadata/_custom_type_script = "uid://nqjbw21dch4k"

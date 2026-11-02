@@ -25,6 +25,15 @@ RunState="*uid://b17l528bjg48m"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[file_customization]
+
+folder_colors={
+"res://Autoloads/": "red",
+"res://Datas/": "orange",
+"res://Resources/": "yellow",
+"res://Scenes/": "green"
+}
+
 [global_group]
 
 player=""

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bkj1ps0mju0qc" path="res://Scenes/Enemy/enemy.gd" id="1_mw074"]
 [ext_resource type="Resource" uid="uid://bdas5m3rdmasi" path="res://Resources/basic_enemy.tres" id="2_nvvbs"]
+[ext_resource type="Script" uid="uid://duqncreb1vxvb" path="res://Scenes/Enemy/Components/target_component.gd" id="3_2t2r4"]
+[ext_resource type="Script" uid="uid://d0c6v6o5h7rch" path="res://Scenes/Common/Components/movement_component.gd" id="4_dmwl5"]
 
 [sub_resource type="Gradient" id="Gradient_ntch3"]
 offsets = PackedFloat32Array(0.35080644)
@@ -24,3 +26,13 @@ texture = SubResource("GradientTexture2D_6le5l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=228671873]
 shape = SubResource("RectangleShape2D_no71r")
+
+[node name="EnemyTargetComponent" type="Node" parent="." unique_id=285219993]
+unique_name_in_owner = true
+script = ExtResource("3_2t2r4")
+metadata/_custom_type_script = "uid://duqncreb1vxvb"
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1571896500]
+unique_name_in_owner = true
+script = ExtResource("4_dmwl5")
+metadata/_custom_type_script = "uid://d0c6v6o5h7rch"
