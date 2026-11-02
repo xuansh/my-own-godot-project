@@ -10,8 +10,7 @@ func _physics_process(_delta: float) -> void:
 	velocity = input_dir * speed
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("KeyBoard-Space"):
-		print("Space is pressed")
+	if Input.is_action_just_pressed("KeyBoard-Space"):	
 		var enemies = get_tree().get_nodes_in_group('enemy') as Array[Enemy]
 		var min_distance : float = INF
 		var closest_enemy : Enemy
