@@ -39,6 +39,7 @@ folder_colors={
 player=""
 enemy=""
 xp_gem=""
+bullet_container=""
 
 [input]
 

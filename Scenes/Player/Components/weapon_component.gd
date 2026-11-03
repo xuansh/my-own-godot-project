@@ -3,11 +3,12 @@ extends Node
 
 var _body : Node2D
 var weapon_definition : WeaponDefinition
+var _timer : Timer
 
 func setup(body, defi : WeaponDefinition, timer : Timer):
 	weapon_definition = defi
 	_body = body
-	print(weapon_definition.cool_time)
+	_timer = timer
 	timer.wait_time = weapon_definition.cool_time
 	timer.one_shot = false
 	timer.timeout.connect(attack)
@@ -23,4 +24,14 @@ func attack():
 			min_distance = distance
 			closest_enemy = enemy
 	if closest_enemy:
+		var dir = _body.global_position.direction_to(closest_enemy.global_position)
+		var bullet = weapon_definition.bullet_scene.instantiate() as Node2D
+		bullet.dir = dir
+		bullet.origin_global_position = _body.global_position
+		get_tree().get_first_node_in_group('bullet_container').add_child(bullet)
 		closest_enemy.take_damage(weapon_definition.damage)
+
+func get_cooltime_ratio() -> float:
+	if _timer == null or _timer.wait_time <= 0:
+		return 1.0
+	return 1.0 - (_timer.time_left / _timer.wait_time)

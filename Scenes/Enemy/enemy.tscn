@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://855fl2j6byyq"]
 
 [ext_resource type="Script" uid="uid://bkj1ps0mju0qc" path="res://Scenes/Enemy/enemy.gd" id="1_mw074"]
-[ext_resource type="Resource" uid="uid://bdas5m3rdmasi" path="res://Resources/basic_enemy.tres" id="2_nvvbs"]
+[ext_resource type="Resource" uid="uid://bdas5m3rdmasi" path="res://Resources/Enemy/basic_enemy.tres" id="2_nvvbs"]
 [ext_resource type="Script" uid="uid://duqncreb1vxvb" path="res://Scenes/Enemy/Components/target_component.gd" id="3_2t2r4"]
 [ext_resource type="Script" uid="uid://d0c6v6o5h7rch" path="res://Scenes/Common/Components/movement_component.gd" id="4_dmwl5"]
 

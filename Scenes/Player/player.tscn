@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy4bbqs0h37fa" path="res://Scenes/Player/player.gd" id="1_8p05u"]
 [ext_resource type="Script" uid="uid://86g2m4qi45jq" path="res://Scenes/Player/Components/input_component.gd" id="2_a3d8c"]
+[ext_resource type="Resource" uid="uid://csblurcb6yofl" path="res://Resources/Player/basic_player.tres" id="3_dd0ac"]
 [ext_resource type="Script" uid="uid://d0c6v6o5h7rch" path="res://Scenes/Common/Components/movement_component.gd" id="3_xpcdj"]
 [ext_resource type="Script" uid="uid://8e6jybvcktcr" path="res://Scenes/Player/Components/weapon_component.gd" id="4_htcer"]
 [ext_resource type="Resource" uid="uid://cq336u315yrvo" path="res://Resources/WeaponDefinitions/basic_weapon.tres" id="5_dd0ac"]
@@ -20,6 +21,7 @@ fill_from = Vector2(1, 1)
 [node name="Player" type="CharacterBody2D" unique_id=1209957444 groups=["player"]]
 script = ExtResource("1_8p05u")
 weapon_definition = ExtResource("5_dd0ac")
+player_data = ExtResource("3_dd0ac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602125154]
 shape = SubResource("RectangleShape2D_6le5l")
@@ -30,18 +32,29 @@ texture = SubResource("GradientTexture2D_no71r")
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=88643603]
 
-[node name="InputComponent" type="Node" parent="." unique_id=1680392336]
+[node name="CoolTimeProgressBar" type="ProgressBar" parent="." unique_id=45643383]
+custom_maximum_size = Vector2(30, 3)
+offset_left = -15.0
+offset_top = 25.0
+offset_right = 15.0
+offset_bottom = 28.0
+pivot_offset = Vector2(15, 1)
+max_value = 1.0
+show_percentage = false
+
+[node name="ComponentsContainer" type="Node" parent="." unique_id=644054569]
+
+[node name="InputComponent" type="Node" parent="ComponentsContainer" unique_id=1680392336]
 unique_name_in_owner = true
 script = ExtResource("2_a3d8c")
 metadata/_custom_type_script = "uid://86g2m4qi45jq"
 
-[node name="MovementComponent" type="Node" parent="." unique_id=2140841324]
+[node name="MovementComponent" type="Node" parent="ComponentsContainer" unique_id=2140841324]
 unique_name_in_owner = true
 script = ExtResource("3_xpcdj")
-max_speed = 150.0
 metadata/_custom_type_script = "uid://d0c6v6o5h7rch"
 
-[node name="WeaponComponent" type="Node" parent="." unique_id=497130471]
+[node name="WeaponComponent" type="Node" parent="ComponentsContainer" unique_id=497130471]
 unique_name_in_owner = true
 script = ExtResource("4_htcer")
 metadata/_custom_type_script = "uid://8e6jybvcktcr"

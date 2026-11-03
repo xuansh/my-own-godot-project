@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://cq336u315yrvo"]
 
 [ext_resource type="Script" uid="uid://nqjbw21dch4k" path="res://Datas/weapon_definition.gd" id="1_ilclt"]
+[ext_resource type="PackedScene" uid="uid://ba53fb1q61k1o" path="res://Scenes/Bullet/bullet.tscn" id="1_qu07f"]
 
 [resource]
 script = ExtResource("1_ilclt")
-cool_time = 0.1
+bullet_scene = ExtResource("1_qu07f")
+cool_time = 0.5
 damage = 50.0
 metadata/_custom_type_script = "uid://nqjbw21dch4k"

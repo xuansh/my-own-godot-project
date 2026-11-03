@@ -15,10 +15,9 @@ func _ready() -> void:
 		return
 	position.x = randi_range(-300, 300)
 	position.y = randi_range(-200, 200)
-	max_hp = data.max_hp
-	hp = max_hp
+	hp = data.max_hp
+	speed = data.max_speed
 	
-	movement_component.set_max_speed(data.max_speed)
 	movement_component.setup(self)
 	player = enemy_target_component.target_player()
 
@@ -26,7 +25,7 @@ func _process(delta: float) -> void:
 	if player == null:
 		return
 	var dir := global_position.direction_to(player.global_position)
-	movement_component.move(dir, delta)
+	movement_component.move(dir, speed, delta)
 
 func take_damage(damage : float):
 	hp -= damage

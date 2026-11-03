@@ -1,18 +1,27 @@
 extends CharacterBody2D
 
-@export var speed : float = 150.0
+
 @export var weapon_definition : WeaponDefinition
+@export var player_data : PlayerData
+var hp : float
+var speed : float
 
 @onready var attack_timer: Timer = $AttackTimer
+@onready var cooltime_progress_bar: ProgressBar = $CoolTimeProgressBar
+
 @onready var input_component : InputComponent = %InputComponent
 @onready var movement_component: MovementComponent = %MovementComponent
 @onready var weapon_component: WeaponComponent = %WeaponComponent
 
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+	hp = player_data.max_hp
+	speed = player_data.max_speed
+	
 	movement_component.setup(self)
 	weapon_component.setup(self, weapon_definition, attack_timer)
 
 func _process(_delta: float) -> void:
 	var input_dir := input_component.get_move_vector()
-	movement_component.move(input_dir, _delta)
+	movement_component.move(input_dir, speed, _delta)
+	cooltime_progress_bar.value = weapon_component.get_cooltime_ratio()
