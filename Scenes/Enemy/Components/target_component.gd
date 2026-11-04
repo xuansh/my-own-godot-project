@@ -1,8 +1,8 @@
 class_name EnemyTargetComponent
 extends Node
 
-var player : CharacterBody2D
+var player : Node2D
 
-func target_player() -> CharacterBody2D:
-	player = get_tree().get_first_node_in_group('player') as CharacterBody2D
+func target_player() -> Node2D:
+	player = get_tree().get_first_node_in_group('player') as Node2D
 	return player

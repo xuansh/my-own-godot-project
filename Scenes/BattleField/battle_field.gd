@@ -8,7 +8,7 @@ extends Node2D
   #→ Hurtbox
   #→ 死亡信号
   #→ EncounterController 生成经验宝石
-@onready var player: CharacterBody2D = $Player
+@onready var player: Node2D = $Player
 
 var enemy : PackedScene = preload("res://Scenes/Enemy/enemy.tscn")
 var xp_gem : PackedScene = preload("res://Scenes/XpGem/xp_gem.tscn")
@@ -16,7 +16,7 @@ var xp_gem : PackedScene = preload("res://Scenes/XpGem/xp_gem.tscn")
 func _ready() -> void:
 	EventBus.enemy_died.connect(on_enemy_died)
 
-	for i in range(10):
+	for i in range(100):
 		var node = enemy.instantiate()
 		add_child(node)
 

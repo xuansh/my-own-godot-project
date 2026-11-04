@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dr06qjg7tfotn" path="res://Scenes/Bullet/bullet.gd" id="1_lv0gj"]
 [ext_resource type="Script" uid="uid://d0c6v6o5h7rch" path="res://Scenes/Common/Components/movement_component.gd" id="2_nt0l2"]
+[ext_resource type="Script" uid="uid://bw6c5g1d08he5" path="res://Scenes/Common/Components/hitbox_component.gd" id="3_nt0l2"]
 
 [sub_resource type="Gradient" id="Gradient_554qy"]
 offsets = PackedFloat32Array(0.4936306)
@@ -14,7 +15,10 @@ height = 5
 fill_from = Vector2(0.7195122, 0.57804877)
 fill_to = Vector2(0.36341465, 0.5341463)
 
-[node name="Bullet" type="Node2D" unique_id=667365557]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gc84"]
+size = Vector2(20, 14)
+
+[node name="Bullet" type="Node2D" unique_id=667365557 groups=["bullet"]]
 script = ExtResource("1_lv0gj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1341922995]
@@ -22,9 +26,19 @@ texture = SubResource("GradientTexture2D_554qy")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=2042511174]
 
+[node name="HitboxArea2D" type="Area2D" parent="." unique_id=977389846]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea2D" unique_id=1167407888]
+shape = SubResource("RectangleShape2D_0gc84")
+
 [node name="ComponentsContainers" type="Node" parent="." unique_id=1609946580]
 
 [node name="MovementComponent" type="Node" parent="ComponentsContainers" unique_id=1019215061]
 unique_name_in_owner = true
 script = ExtResource("2_nt0l2")
 metadata/_custom_type_script = "uid://d0c6v6o5h7rch"
+
+[node name="HitboxComponent" type="Node" parent="ComponentsContainers" unique_id=1054663624]
+unique_name_in_owner = true
+script = ExtResource("3_nt0l2")
+metadata/_custom_type_script = "uid://bw6c5g1d08he5"

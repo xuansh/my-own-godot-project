@@ -1,5 +1,5 @@
-extends CharacterBody2D
-
+class_name Player
+extends Node2D
 
 @export var weapon_definition : WeaponDefinition
 @export var player_data : PlayerData
@@ -14,7 +14,6 @@ var speed : float
 @onready var weapon_component: WeaponComponent = %WeaponComponent
 
 func _ready() -> void:
-	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	hp = player_data.max_hp
 	speed = player_data.max_speed
 	

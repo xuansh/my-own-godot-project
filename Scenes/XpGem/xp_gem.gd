@@ -9,7 +9,7 @@ func _on_body_entered(body: Node2D) -> void:
 		_chasing = true
 
 func _process(delta: float) -> void:
-	var player = get_tree().get_first_node_in_group('player') as CharacterBody2D
+	var player = get_tree().get_first_node_in_group('player') as Node2D
 	if _chasing:
 		var dir = global_position.direction_to(player.global_position)
 		global_position += dir * speed * delta

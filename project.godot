@@ -40,6 +40,7 @@ player=""
 enemy=""
 xp_gem=""
 bullet_container=""
+bullet=""
 
 [input]
 

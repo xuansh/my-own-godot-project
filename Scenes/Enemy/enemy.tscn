@@ -4,6 +4,8 @@
 [ext_resource type="Resource" uid="uid://bdas5m3rdmasi" path="res://Resources/Enemy/basic_enemy.tres" id="2_nvvbs"]
 [ext_resource type="Script" uid="uid://duqncreb1vxvb" path="res://Scenes/Enemy/Components/target_component.gd" id="3_2t2r4"]
 [ext_resource type="Script" uid="uid://d0c6v6o5h7rch" path="res://Scenes/Common/Components/movement_component.gd" id="4_dmwl5"]
+[ext_resource type="Script" uid="uid://d3exkhymfrk2" path="res://Scenes/Common/Components/damage_component.gd" id="6_gx76c"]
+[ext_resource type="Script" uid="uid://olrgusdjutps" path="res://Scenes/Common/Components/hurtbox_component.gd" id="6_pqgp3"]
 
 [sub_resource type="Gradient" id="Gradient_ntch3"]
 offsets = PackedFloat32Array(0.35080644)
@@ -13,10 +15,10 @@ colors = PackedColorArray(0.73476964, 0.09769382, 0.200385, 1)
 gradient = SubResource("Gradient_ntch3")
 fill_from = Vector2(0.2122093, 0.49127907)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_no71r"]
-size = Vector2(12, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kldih"]
+size = Vector2(16, 18)
 
-[node name="Enemy" type="Area2D" unique_id=1283978727 groups=["enemy"]]
+[node name="Enemy" type="Node2D" unique_id=1588455685 groups=["enemy"]]
 script = ExtResource("1_mw074")
 data = ExtResource("2_nvvbs")
 
@@ -24,15 +26,29 @@ data = ExtResource("2_nvvbs")
 scale = Vector2(0.1875, 0.21875)
 texture = SubResource("GradientTexture2D_6le5l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=228671873]
-shape = SubResource("RectangleShape2D_no71r")
+[node name="ComponentsContainer" type="Node" parent="." unique_id=1480997912]
 
-[node name="EnemyTargetComponent" type="Node" parent="." unique_id=285219993]
+[node name="EnemyTargetComponent" type="Node" parent="ComponentsContainer" unique_id=285219993]
 unique_name_in_owner = true
 script = ExtResource("3_2t2r4")
 metadata/_custom_type_script = "uid://duqncreb1vxvb"
 
-[node name="MovementComponent" type="Node" parent="." unique_id=1571896500]
+[node name="MovementComponent" type="Node" parent="ComponentsContainer" unique_id=1571896500]
 unique_name_in_owner = true
 script = ExtResource("4_dmwl5")
 metadata/_custom_type_script = "uid://d0c6v6o5h7rch"
+
+[node name="DamageComponent" type="Node" parent="ComponentsContainer" unique_id=656264332]
+unique_name_in_owner = true
+script = ExtResource("6_gx76c")
+metadata/_custom_type_script = "uid://d3exkhymfrk2"
+
+[node name="HurtboxComponent" type="Node" parent="ComponentsContainer" unique_id=311375458]
+unique_name_in_owner = true
+script = ExtResource("6_pqgp3")
+metadata/_custom_type_script = "uid://olrgusdjutps"
+
+[node name="HurtboxArea2D" type="Area2D" parent="." unique_id=1880872813]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxArea2D" unique_id=1894151310]
+shape = SubResource("RectangleShape2D_kldih")

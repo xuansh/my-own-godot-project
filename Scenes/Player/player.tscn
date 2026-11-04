@@ -7,9 +7,6 @@
 [ext_resource type="Script" uid="uid://8e6jybvcktcr" path="res://Scenes/Player/Components/weapon_component.gd" id="4_htcer"]
 [ext_resource type="Resource" uid="uid://cq336u315yrvo" path="res://Resources/WeaponDefinitions/basic_weapon.tres" id="5_dd0ac"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6le5l"]
-size = Vector2(20, 40)
-
 [sub_resource type="Gradient" id="Gradient_f60y1"]
 offsets = PackedFloat32Array(0.16532259)
 colors = PackedColorArray(0, 1, 0.38431373, 1)
@@ -18,13 +15,10 @@ colors = PackedColorArray(0, 1, 0.38431373, 1)
 gradient = SubResource("Gradient_f60y1")
 fill_from = Vector2(1, 1)
 
-[node name="Player" type="CharacterBody2D" unique_id=1209957444 groups=["player"]]
+[node name="Player" type="Node2D" unique_id=1961986727 groups=["player"]]
 script = ExtResource("1_8p05u")
 weapon_definition = ExtResource("5_dd0ac")
 player_data = ExtResource("3_dd0ac")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602125154]
-shape = SubResource("RectangleShape2D_6le5l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1206638493]
 scale = Vector2(0.3125, 0.625)

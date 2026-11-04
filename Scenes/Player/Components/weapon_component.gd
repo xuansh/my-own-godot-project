@@ -25,11 +25,12 @@ func attack():
 			closest_enemy = enemy
 	if closest_enemy:
 		var dir = _body.global_position.direction_to(closest_enemy.global_position)
-		var bullet = weapon_definition.bullet_scene.instantiate() as Node2D
-		bullet.dir = dir
-		bullet.origin_global_position = _body.global_position
+		var bullet = weapon_definition.bullet_scene.instantiate() as Bullet
+		if bullet:
+			bullet.dir = dir
+			bullet.origin_global_position = _body.global_position
+			bullet.damage = weapon_definition.damage
 		get_tree().get_first_node_in_group('bullet_container').add_child(bullet)
-		closest_enemy.take_damage(weapon_definition.damage)
 
 func get_cooltime_ratio() -> float:
 	if _timer == null or _timer.wait_time <= 0:
