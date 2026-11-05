@@ -6,3 +6,6 @@ var max_speed : float
 
 @export_range(0.0, 1000.0, 10.0)
 var max_hp : float
+
+@export_range(10.0, 1000.0, 10.0)
+var xp_gem_pickup_range : float
