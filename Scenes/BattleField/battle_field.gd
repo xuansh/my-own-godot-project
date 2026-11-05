@@ -24,6 +24,6 @@ func _process(delta: float) -> void:
 	RunState.tick(delta)
 
 func on_enemy_died(payload : EventBus.EnemyDiedPayload):
-	var gem = xp_gem.instantiate() as Area2D
+	var gem = xp_gem.instantiate() as Node2D
 	add_child(gem)
 	gem.global_position = payload.global_position

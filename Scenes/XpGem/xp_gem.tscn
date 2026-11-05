@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c7j21h6n4efc1" path="res://Scenes/XpGem/xp_gem.gd" id="1_qk6jv"]
 [ext_resource type="Script" uid="uid://d0c6v6o5h7rch" path="res://Scenes/Common/Components/movement_component.gd" id="2_ebsa1"]
+[ext_resource type="Script" uid="uid://7252wmkjupfn" path="res://Scenes/Common/Components/magnet_target_component.gd" id="3_t43w8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hj8kj"]
-radius = 25.0
+radius = 7.0
 
 [sub_resource type="Gradient" id="Gradient_hj8kj"]
 offsets = PackedFloat32Array(0.5573248)
@@ -16,10 +17,12 @@ width = 5
 height = 5
 fill_from = Vector2(0.42897728, 0.35511363)
 
-[node name="XpGem" type="Area2D" unique_id=12311864 groups=["xp_gem"]]
+[node name="XpGem" type="Node2D" unique_id=1101845713 groups=["magnet_target", "xp_gem"]]
 script = ExtResource("1_qk6jv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966368433]
+[node name="MagnetTargetArea2D" type="Area2D" parent="." unique_id=12311864]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetTargetArea2D" unique_id=1966368433]
 shape = SubResource("CircleShape2D_hj8kj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092911010]
@@ -32,4 +35,8 @@ unique_name_in_owner = true
 script = ExtResource("2_ebsa1")
 metadata/_custom_type_script = "uid://d0c6v6o5h7rch"
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="MagnetTargetComponent" type="Node" parent="ComponentsContainer" unique_id=1676921986]
+unique_name_in_owner = true
+script = ExtResource("3_t43w8")
+speed = 200.0
+metadata/_custom_type_script = "uid://7252wmkjupfn"

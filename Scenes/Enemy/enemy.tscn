@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://bkj1ps0mju0qc" path="res://Scenes/Enemy/enemy.gd" id="1_mw074"]
 [ext_resource type="Resource" uid="uid://bdas5m3rdmasi" path="res://Resources/Enemy/basic_enemy.tres" id="2_nvvbs"]
 [ext_resource type="Script" uid="uid://duqncreb1vxvb" path="res://Scenes/Enemy/Components/target_component.gd" id="3_2t2r4"]
+[ext_resource type="Resource" uid="uid://q5368xp5kc38" path="res://Resources/WeaponDefinitions/enemy0_basic_melee_weapon.tres" id="3_4ad2a"]
 [ext_resource type="Script" uid="uid://d0c6v6o5h7rch" path="res://Scenes/Common/Components/movement_component.gd" id="4_dmwl5"]
 [ext_resource type="Script" uid="uid://d3exkhymfrk2" path="res://Scenes/Common/Components/damage_component.gd" id="6_gx76c"]
 [ext_resource type="Script" uid="uid://olrgusdjutps" path="res://Scenes/Common/Components/hurtbox_component.gd" id="6_pqgp3"]
+[ext_resource type="Script" uid="uid://8e6jybvcktcr" path="res://Scenes/Player/Components/weapon_component.gd" id="7_pqgp3"]
 
 [sub_resource type="Gradient" id="Gradient_ntch3"]
 offsets = PackedFloat32Array(0.35080644)
@@ -21,10 +23,13 @@ size = Vector2(16, 18)
 [node name="Enemy" type="Node2D" unique_id=1588455685 groups=["enemy"]]
 script = ExtResource("1_mw074")
 data = ExtResource("2_nvvbs")
+weapon_definition = ExtResource("3_4ad2a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1242877475]
 scale = Vector2(0.1875, 0.21875)
 texture = SubResource("GradientTexture2D_6le5l")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1478386452]
 
 [node name="ComponentsContainer" type="Node" parent="." unique_id=1480997912]
 
@@ -47,6 +52,11 @@ metadata/_custom_type_script = "uid://d3exkhymfrk2"
 unique_name_in_owner = true
 script = ExtResource("6_pqgp3")
 metadata/_custom_type_script = "uid://olrgusdjutps"
+
+[node name="WeaponComponent" type="Node" parent="ComponentsContainer" unique_id=154870735]
+unique_name_in_owner = true
+script = ExtResource("7_pqgp3")
+metadata/_custom_type_script = "uid://8e6jybvcktcr"
 
 [node name="HurtboxArea2D" type="Area2D" parent="." unique_id=1880872813]
 

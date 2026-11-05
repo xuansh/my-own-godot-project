@@ -41,6 +41,7 @@ enemy=""
 xp_gem=""
 bullet_container=""
 bullet=""
+magnet_target=""
 
 [input]
 

@@ -8,4 +8,4 @@ var max_speed : float
 var max_hp : float
 
 @export_range(10.0, 1000.0, 10.0)
-var xp_gem_pickup_range : float
+var magnet_range : float

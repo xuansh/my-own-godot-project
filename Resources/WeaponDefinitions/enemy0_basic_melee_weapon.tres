@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponDefinition" format=3 uid="uid://q5368xp5kc38"]
+
+[ext_resource type="PackedScene" uid="uid://bu04d5kkk31hh" path="res://Scenes/Bullet/melee_bullet.tscn" id="1_ass4y"]
+[ext_resource type="Script" uid="uid://nqjbw21dch4k" path="res://Datas/weapon_definition.gd" id="1_owoow"]
+
+[resource]
+script = ExtResource("1_owoow")
+id = &"enemy0_basic_melee_weapon"
+weapon_name = "敌人0基础近战武器"
+bullet_scene = ExtResource("1_ass4y")
+is_melee_weapon = true
+is_bullet_firing = false
+metadata/_custom_type_script = "uid://nqjbw21dch4k"

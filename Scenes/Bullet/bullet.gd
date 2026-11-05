@@ -21,4 +21,4 @@ func _ready() -> void:
 	)
 
 func _process(delta: float) -> void:
-	movement_component.move(dir, speed, delta, true)
+	movement_component.move(delta, dir, speed, true)

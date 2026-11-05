@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bu04d5kkk31hh"]
+
+[ext_resource type="Script" uid="uid://bw6c5g1d08he5" path="res://Scenes/Common/Components/hitbox_component.gd" id="1_cp36a"]
+[ext_resource type="Script" uid="uid://2fn3lo8kmq0g" path="res://Scenes/Bullet/melee_bullet.gd" id="1_fhxkw"]
+[ext_resource type="Script" uid="uid://b6vbhpa7wwq0w" path="res://Scenes/Common/Components/point_movement_component.gd" id="3_fhxkw"]
+
+[sub_resource type="Gradient" id="Gradient_b8cqa"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b8cqa"]
+gradient = SubResource("Gradient_b8cqa")
+width = 20
+height = 20
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kldih"]
+
+[node name="MeleeBullet" type="Node2D" unique_id=1222155138]
+script = ExtResource("1_fhxkw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=871875432]
+texture = SubResource("GradientTexture2D_b8cqa")
+
+[node name="HitboxArea2D" type="Area2D" parent="." unique_id=2106712707]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea2D" unique_id=1390981757]
+shape = SubResource("RectangleShape2D_kldih")
+
+[node name="ComponentsContainer" type="Node" parent="." unique_id=739521485]
+
+[node name="HitboxComponent" type="Node" parent="ComponentsContainer" unique_id=934228106]
+unique_name_in_owner = true
+script = ExtResource("1_cp36a")
+metadata/_custom_type_script = "uid://bw6c5g1d08he5"
+
+[node name="PointMovementComponent" type="Node" parent="ComponentsContainer" unique_id=2006816246]
+unique_name_in_owner = true
+script = ExtResource("3_fhxkw")
+metadata/_custom_type_script = "uid://b6vbhpa7wwq0w"
