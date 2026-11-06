@@ -3,7 +3,7 @@ extends Node
 
 var _body : Entity
 var weapon_definition : WeaponDefinition
-var _timer : Timer
+var _timer := Timer.new()
 var basic_bullet_count : int
 
 func setup(body, defi : WeaponDefinition, timer : Timer):
@@ -12,9 +12,16 @@ func setup(body, defi : WeaponDefinition, timer : Timer):
 	_body = body
 	_timer = timer
 	timer.wait_time = weapon_definition.cool_time
+	if _body is Player:
+		set_attack_speed(_body.player_data.additional_bullet_speed)
 	timer.one_shot = false
 	timer.timeout.connect(fire)
 	timer.start()
+
+func set_attack_speed(total_additional_speed : float):
+	var time = 1 / ((1 / weapon_definition.cool_time) * (1 + total_additional_speed))
+	print(time)
+	_timer.wait_time = time
 
 func fire():
 	var is_player_hurtable : bool = false

@@ -10,5 +10,9 @@ var max_hp : float
 @export_range(10.0, 1000.0, 10.0)
 var magnet_range : float
 
+## 
 @export
 var additional_bullet_count : int
+
+@export
+var additional_bullet_speed : float = 0.0
