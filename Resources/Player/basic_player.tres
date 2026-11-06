@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_70u8o")
 max_speed = 150.0
-max_hp = 100.0
-xp_gem_pickup_range = 50.0
+max_hp = 1000.0
 metadata/_custom_type_script = "uid://s4ysrtmckgei"

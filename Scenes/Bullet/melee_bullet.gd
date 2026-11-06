@@ -1,6 +1,7 @@
 class_name MeleeBullet
 extends Bullet
 
+
 var follow_node : Node2D
 
 func _ready() -> void:
@@ -8,7 +9,7 @@ func _ready() -> void:
 	self.global_position = origin_global_position
 	movement_component.setup(self)
 	hitbox_component.setup(self, damage)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
 	queue_free()
 
 func _process(delta: float) -> void:

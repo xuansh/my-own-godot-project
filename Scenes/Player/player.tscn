@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://cq336u315yrvo" path="res://Resources/WeaponDefinitions/basic_weapon.tres" id="5_dd0ac"]
 [ext_resource type="Script" uid="uid://drcf8spwg7xh1" path="res://Scenes/Common/Components/magnet_component.gd" id="7_0u5uq"]
 [ext_resource type="Script" uid="uid://olrgusdjutps" path="res://Scenes/Common/Components/hurtbox_component.gd" id="8_jlvik"]
+[ext_resource type="PackedScene" uid="uid://cxycdd13eplt0" path="res://Scenes/Common/BoxAreas/hurtbox_area_2d.tscn" id="9_gk6dx"]
+[ext_resource type="Script" uid="uid://d3exkhymfrk2" path="res://Scenes/Common/Components/damage_component.gd" id="9_jhyir"]
 
 [sub_resource type="Gradient" id="Gradient_f60y1"]
 offsets = PackedFloat32Array(0.16532259)
@@ -68,7 +70,14 @@ unique_name_in_owner = true
 script = ExtResource("8_jlvik")
 metadata/_custom_type_script = "uid://olrgusdjutps"
 
+[node name="DamageComponent" type="Node" parent="ComponentsContainer" unique_id=1116071113]
+unique_name_in_owner = true
+script = ExtResource("9_jhyir")
+metadata/_custom_type_script = "uid://d3exkhymfrk2"
+
 [node name="MagnetArea2D" type="Area2D" parent="." unique_id=847372426]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetArea2D" unique_id=7288884]
 shape = SubResource("CircleShape2D_6le5l")
+
+[node name="HurtboxArea2D" parent="." unique_id=1551379937 instance=ExtResource("9_gk6dx")]

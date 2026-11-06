@@ -1,12 +1,14 @@
 class_name WeaponComponent
 extends Node
 
-var _body : Node2D
+var _body : Entity
 var weapon_definition : WeaponDefinition
 var _timer : Timer
+var basic_bullet_count : int
 
 func setup(body, defi : WeaponDefinition, timer : Timer):
 	weapon_definition = defi
+	basic_bullet_count = defi.basic_bullet_count
 	_body = body
 	_timer = timer
 	timer.wait_time = weapon_definition.cool_time
@@ -15,13 +17,16 @@ func setup(body, defi : WeaponDefinition, timer : Timer):
 	timer.start()
 
 func fire():
+	var is_player_hurtable : bool = false
 	var fire_targets : Array[Node2D]
 	if _body is Player:
+		is_player_hurtable = false
 		fire_targets.assign(get_tree().get_nodes_in_group('enemy'))
 	elif _body is Enemy:
+		is_player_hurtable = true
 		fire_targets.assign(get_tree().get_nodes_in_group('player'))
 	var min_distance : float = INF
-	var closest_target : Node2D
+	var closest_target : Entity
 	for target in fire_targets:
 		var distance = _body.global_position.distance_squared_to(target.global_position)
 		if distance < min_distance:
@@ -33,14 +38,22 @@ func fire():
 			dir = _body.global_position.direction_to(closest_target.global_position)
 		else:
 			dir = _body.global_transform.x.normalized()
-		var bullet = weapon_definition.bullet_scene.instantiate() as Bullet
-		if bullet:
-			bullet.dir = dir
-			bullet.origin_global_position = _body.global_position
-			bullet.damage = weapon_definition.damage
-			if bullet is MeleeBullet:
-				bullet.follow_node = _body
-		get_tree().get_first_node_in_group('bullet_container').add_child(bullet)
+		var count : int = 1
+		if not weapon_definition.is_melee_weapon:
+			count = maxi(basic_bullet_count + _body.additional_bullet_count, 1)
+		for i in range(count):
+			var bullet = weapon_definition.bullet_scene.instantiate() as Bullet
+			if bullet:
+				var angle : float = 0.0
+				if count > 1:
+					angle = deg_to_rad(weapon_definition.spread_angle) * (i / float(count - 1) - 0.5)
+				bullet.dir = dir.rotated(angle)
+				bullet.origin_global_position = _body.global_position + dir.orthogonal() * (i - (count - 1) * 0.5)
+				bullet.damage = weapon_definition.damage
+				bullet.is_player_hurtable = is_player_hurtable
+				if bullet is MeleeBullet:
+					bullet.follow_node = _body
+				get_tree().get_first_node_in_group('bullet_container').add_child(bullet)
 
 func get_cooltime_ratio() -> float:
 	if _timer == null or _timer.wait_time <= 0:

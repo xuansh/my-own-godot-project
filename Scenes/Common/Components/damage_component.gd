@@ -9,6 +9,10 @@ func setup(body):
 func take_damage(damage : float):
 	_body.hp -= damage
 	if _body.hp <= 0:
+		if _body is Player:
+			print("Player is dead! gameover")
+			get_tree().quit()
+			return
 		var payload := EventBus.EnemyDiedPayload.new()
 		payload.global_position = _body.global_position
 		payload.exp = _body.data._exp

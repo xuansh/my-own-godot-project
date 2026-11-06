@@ -1,10 +1,7 @@
 class_name Enemy
-extends Node2D
+extends Entity
 
-var hp : float
-var max_hp : float
-var speed : float
-var player : Node2D = null
+var player : Player = null
 
 @export var data : EnemyData
 @onready var enemy_target_component: EnemyTargetComponent = %EnemyTargetComponent
@@ -26,6 +23,7 @@ func _ready() -> void:
 	position.y = randi_range(-200, 200)
 	hp = data.max_hp
 	speed = data.max_speed
+	additional_bullet_count = data.additional_bullet_count
 
 	movement_component.setup(self)
 	hurtbox_component.setup(self)

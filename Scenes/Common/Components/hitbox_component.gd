@@ -9,5 +9,5 @@ func setup(body, p_damage):
 	damage = p_damage
 
 func attack(target):
-	if target is Enemy and _body is Bullet:
-		(target as Enemy).damage_component.take_damage(damage)
+	if _body is Bullet:
+		target.damage_component.take_damage(damage)

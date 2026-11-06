@@ -12,6 +12,7 @@ width = 20
 height = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kldih"]
+size = Vector2(38, 38)
 
 [node name="MeleeBullet" type="Node2D" unique_id=1222155138]
 script = ExtResource("1_fhxkw")

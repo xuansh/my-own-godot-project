@@ -2,6 +2,7 @@ class_name XpGem
 extends Node2D
 
 var speed : float = 200
+var exp : int
 
 @onready var movement_component: MovementComponent = %MovementComponent
 @onready var magnet_target_component: MagnetTargetComponent = %MagnetTargetComponent
@@ -11,6 +12,9 @@ var speed : float = 200
 func _ready() -> void:
 	movement_component.setup(self)
 	magnet_target_component.setup(self, movement_component)
+
+func setup(exp : int):
+	self.exp = exp
 
 func _process(delta: float) -> void:
 	magnet_target_component.tick(delta)

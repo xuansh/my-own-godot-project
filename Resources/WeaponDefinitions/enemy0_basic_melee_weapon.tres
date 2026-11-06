@@ -10,4 +10,6 @@ weapon_name = "敌人0基础近战武器"
 bullet_scene = ExtResource("1_ass4y")
 is_melee_weapon = true
 is_bullet_firing = false
+cool_time = 0.5
+damage = 15.0
 metadata/_custom_type_script = "uid://nqjbw21dch4k"
