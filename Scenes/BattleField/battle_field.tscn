@@ -8,9 +8,11 @@ script = ExtResource("1_8r4ul")
 
 [node name="Player" parent="." unique_id=1209957444 instance=ExtResource("2_y1e7y")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1068462332]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1068462332]
 
 [node name="BulletsContainer" type="Node" parent="." unique_id=156695525 groups=["bullet_container"]]
 
 [node name="EnemySpawnTimer" type="Timer" parent="." unique_id=2021102089]
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=696671074]

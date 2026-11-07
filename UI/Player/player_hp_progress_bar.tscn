@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c70w13luenftd"]
+
+[ext_resource type="Script" uid="uid://cwtwwwwqxlcuj" path="res://UI/Player/player_hp_progress_bar.gd" id="1_cxq2n"]
+
+[node name="PlayerHpProgressBar" type="ProgressBar" unique_id=659506338]
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 335.0
+offset_bottom = 47.0
+script = ExtResource("1_cxq2n")
