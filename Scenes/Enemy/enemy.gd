@@ -22,6 +22,7 @@ func _ready() -> void:
 	position.x = randi_range(-300, 300)
 	position.y = randi_range(-200, 200)
 	hp = data.max_hp
+	print(hp)
 	speed = data.max_speed
 	additional_bullet_count = data.additional_bullet_count
 

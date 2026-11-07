@@ -7,6 +7,6 @@
 script = ExtResource("1_ilclt")
 bullet_scene = ExtResource("1_qu07f")
 spread_angle = 40.0
-cool_time = 0.3
+cool_time = 0.5
 damage = 15.0
 metadata/_custom_type_script = "uid://nqjbw21dch4k"

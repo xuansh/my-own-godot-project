@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bral0mrogcv80" path="res://Scenes/BattleField/battle_field.gd" id="1_8r4ul"]
 [ext_resource type="PackedScene" uid="uid://by7pdbt1cwtu" path="res://Scenes/Player/player.tscn" id="2_y1e7y"]
+[ext_resource type="PackedScene" uid="uid://c70w13luenftd" path="res://UI/Player/player_hp_progress_bar.tscn" id="3_y1e7y"]
 
 [node name="BattleField" type="Node2D" unique_id=434400165]
 script = ExtResource("1_8r4ul")
@@ -16,3 +17,7 @@ script = ExtResource("1_8r4ul")
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=696671074]
+
+[node name="PlayerHpProgressBar" parent="CanvasLayer" unique_id=659506338 instance=ExtResource("3_y1e7y")]
+max_value = 0.0
+step = 1.0

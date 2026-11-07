@@ -20,7 +20,7 @@ func _ready() -> void:
 	hp = player_data.max_hp
 	speed = player_data.max_speed
 	additional_bullet_count += player_data.additional_bullet_count
-
+	
 	movement_component.setup(self)
 	weapon_component.setup(self, weapon_definition, attack_timer)
 	magnet_component.setup(self)

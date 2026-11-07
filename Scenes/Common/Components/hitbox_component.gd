@@ -11,3 +11,5 @@ func setup(body, p_damage):
 func attack(target):
 	if _body is Bullet:
 		target.damage_component.take_damage(damage)
+		if _body is Player:
+			print(_body)
